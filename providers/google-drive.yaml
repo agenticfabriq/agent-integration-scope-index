@@ -1,0 +1,17 @@
+provider: {id: google-drive, name: Google Drive, docs: "https://developers.google.com/drive/api/guides/api-specific-auth"}
+auth_mechanisms: [oauth2-authorization-code, google-workspace-domain-wide-delegation]
+tasks:
+  - id: work-with-user-picked-files
+    task: Read or edit specific files the user chooses
+    minimum_scopes: ["https://www.googleapis.com/auth/drive.file"]
+    also_grants: Only files the app created or the user opened with the app (for example via Google Picker).
+    review_trigger: Non-sensitive scope.
+  - id: search-all-files
+    task: Search and read across all of the user's Drive
+    minimum_scopes: ["https://www.googleapis.com/auth/drive.readonly"]
+    also_grants: Read access to every file the user can see, including shared drives.
+    review_trigger: Restricted scope.
+    safer_alternative: Use drive.file plus Picker when the agent doesn't truly need corpus-wide search.
+sources:
+  - https://developers.google.com/drive/api/guides/api-specific-auth
+verification: {status: needs-review, checked_on: null, checked_by: null}

@@ -1,0 +1,26 @@
+provider: {id: slack, name: Slack, docs: "https://api.slack.com/scopes"}
+auth_mechanisms: [slack-app-bot-token, slack-app-user-token]
+tasks:
+  - id: post-message-as-bot
+    task: Post a message to a channel as the app
+    minimum_scopes: ["chat:write"]
+    also_grants: Post in channels the bot has been added to.
+    broader_options:
+      - {scope: "chat:write.public", adds: Post in public channels without being invited}
+  - id: read-channel-history
+    task: Read messages in a public channel to answer a question
+    minimum_scopes: ["channels:history"]
+    also_grants: Message history in public channels the app is in.
+    broader_options:
+      - {scope: "groups:history", adds: Private channels the app is in}
+      - {scope: "im:history", adds: Direct messages with the app}
+  - id: search-as-user
+    task: Search messages the user can see
+    minimum_scopes: ["search:read (user token)"]
+    also_grants: Search across everything the authorizing user can access; the agent acts with that user's visibility.
+agent_pitfalls:
+  - Bot tokens act as the app, not the person asking; an agent answering in a shared channel may reveal content the asker couldn't see directly.
+sources:
+  - https://api.slack.com/scopes
+  - https://api.slack.com/authentication/token-types
+verification: {status: needs-review, checked_on: null, checked_by: null}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agenticfabriq.github.io/agent-integration-scope-index/schema/provider.schema.json",
+  "title": "Provider scope record",
+  "type": "object",
+  "required": ["provider", "auth_mechanisms", "tasks", "sources", "verification"],
+  "properties": {
+    "provider": {"type": "object", "required": ["id", "name", "docs"], "properties": {"id": {"type": "string"}, "name": {"type": "string"}, "docs": {"type": "string", "format": "uri"}}},
+    "auth_mechanisms": {"type": "array", "items": {"type": "string"}},
+    "tasks": {"type": "array", "items": {"type": "object", "required": ["id", "task", "minimum_scopes"], "properties": {
+      "id": {"type": "string"}, "task": {"type": "string"},
+      "minimum_scopes": {"type": "array", "items": {"type": "string"}},
+      "also_grants": {"type": "string"}, "safer_alternative": {"type": "string"},
+      "broader_options": {"type": "array", "items": {"type": "object"}}, "review_trigger": {"type": "string"}}}},
+    "token_behavior": {"type": "string"},
+    "agent_pitfalls": {"type": "array", "items": {"type": "string"}},
+    "sources": {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+    "verification": {"type": "object", "required": ["status"], "properties": {"status": {"enum": ["needs-review", "verified", "stale"]}, "checked_on": {"type": ["string", "null"]}, "checked_by": {"type": ["string", "null"]}}}
+  }
+}

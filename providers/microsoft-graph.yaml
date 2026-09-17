@@ -1,0 +1,25 @@
+provider: {id: microsoft-graph, name: Microsoft Graph, docs: "https://learn.microsoft.com/en-us/graph/permissions-reference"}
+auth_mechanisms: [delegated-permissions, application-permissions]
+tasks:
+  - id: send-mail-as-user
+    task: Send an email as the signed-in user
+    minimum_scopes: ["Mail.Send (delegated)", "offline_access"]
+    also_grants: Send as the user; no mailbox read.
+    broader_options:
+      - {scope: "Mail.Send (application)", adds: Send as any user in the tenant; requires admin consent}
+  - id: read-calendar
+    task: Read the user's calendar to find free time
+    minimum_scopes: ["Calendars.Read (delegated)", "offline_access"]
+    safer_alternative: Use the free/busy endpoint where full event details aren't needed.
+  - id: read-onedrive-files
+    task: Read files in the user's OneDrive
+    minimum_scopes: ["Files.Read (delegated)", "offline_access"]
+    broader_options:
+      - {scope: "Files.Read.All (delegated)", adds: Files shared with the user and SharePoint sites they can access}
+agent_pitfalls:
+  - Application permissions apply tenant-wide; an agent holding Mail.Read (application) can read every mailbox. Scope with Exchange application access policies or RBAC for Applications.
+  - offline_access is required for refresh tokens; without it long-running agents fail after about an hour.
+sources:
+  - https://learn.microsoft.com/en-us/graph/permissions-reference
+  - https://learn.microsoft.com/en-us/graph/auth/auth-concepts
+verification: {status: needs-review, checked_on: null, checked_by: null}

@@ -1,0 +1,20 @@
+provider: {id: github, name: GitHub, docs: "https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/deciding-when-to-build-a-github-app"}
+auth_mechanisms: [github-app-installation, github-app-user-to-server, oauth-app, fine-grained-personal-access-token]
+tasks:
+  - id: open-pull-request
+    task: Push a branch and open a pull request in one repository
+    minimum_scopes: ["GitHub App: Contents read & write", "GitHub App: Pull requests read & write", "installation limited to selected repositories"]
+    also_grants: Write to any branch not protected by rulesets in the selected repositories.
+    broader_options:
+      - {scope: "OAuth app: repo", adds: Full control of all private repositories the user can access}
+  - id: comment-on-issues
+    task: Read and comment on issues
+    minimum_scopes: ["GitHub App: Issues read & write"]
+agent_pitfalls:
+  - Classic personal access tokens and the OAuth repo scope are all-or-nothing across repositories; prefer a GitHub App restricted to selected repositories.
+  - Pair agent write access with branch rulesets so merges still require human review.
+sources:
+  - https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/deciding-when-to-build-a-github-app
+  - https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps
+  - https://docs.github.com/en/rest/authentication/permissions-required-for-github-apps
+verification: {status: needs-review, checked_on: null, checked_by: null}

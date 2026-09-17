@@ -1,0 +1,10 @@
+site_name: Agent Integration Scope Index
+site_url: https://agenticfabriq.github.io/agent-integration-scope-index/
+site_description: The smallest set of OAuth scopes or permissions an AI agent needs for common tasks, per provider.
+repo_url: https://github.com/agenticfabriq/agent-integration-scope-index
+theme:
+  name: material
+  custom_dir: overrides
+nav:
+  - Overview: index.md
+  - FAQ: faq.md

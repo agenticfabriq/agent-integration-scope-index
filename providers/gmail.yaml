@@ -1,0 +1,27 @@
+provider: {id: gmail, name: Gmail, docs: "https://developers.google.com/gmail/api/auth/scopes"}
+auth_mechanisms: [oauth2-authorization-code, google-workspace-domain-wide-delegation]
+tasks:
+  - id: send-as-user
+    task: Send an email as the user
+    minimum_scopes: ["https://www.googleapis.com/auth/gmail.send"]
+    also_grants: Send only; no read access to the mailbox.
+    review_trigger: Sensitive scope; Google OAuth app verification required for external users.
+  - id: draft-for-approval
+    task: Create a draft for the user to review and send
+    minimum_scopes: ["https://www.googleapis.com/auth/gmail.compose"]
+    also_grants: Create, read, update and send drafts, and send messages.
+    safer_alternative: If a human must approve, send via gmail.send only after an approval step in your own system.
+  - id: read-inbox
+    task: Read and summarize messages
+    minimum_scopes: ["https://www.googleapis.com/auth/gmail.readonly"]
+    also_grants: Read every message and setting in the mailbox.
+    safer_alternative: gmail.metadata if you only need headers and labels, not bodies.
+    review_trigger: Restricted scope; verification plus an annual third-party security assessment for apps that store data server-side.
+token_behavior: Refresh tokens for apps in "Testing" publishing status expire after 7 days, which silently breaks long-running agents in development.
+agent_pitfalls:
+  - Domain-wide delegation lets a service account impersonate any user in the Workspace domain; treat it as a shared-service-account identity.
+sources:
+  - https://developers.google.com/gmail/api/auth/scopes
+  - https://developers.google.com/identity/protocols/oauth2
+  - https://support.google.com/cloud/answer/13463073
+verification: {status: needs-review, checked_on: null, checked_by: null}
