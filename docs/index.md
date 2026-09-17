@@ -14,8 +14,8 @@ a pull request, this is the page that answers "what's the least I can ask for?"
 
 ## What's in each record
 
-One YAML file per provider in [`providers/`](providers/), validated by
-[`schema/provider.schema.json`](schema/provider.schema.json):
+One YAML file per provider in [`providers/`](https://github.com/agenticfabriq/agent-integration-scope-index/tree/main/providers), validated by
+[`schema/provider.schema.json`](https://github.com/agenticfabriq/agent-integration-scope-index/blob/main/schema/provider.schema.json):
 
 - **auth_mechanisms** — OAuth app, app installation, API key, service account
 - **tasks** — a common agent task (for example "send an email as the user") with
@@ -29,11 +29,11 @@ One YAML file per provider in [`providers/`](providers/), validated by
 
 | Provider | File | Status |
 |---|---|---|
-| Gmail | [`providers/gmail.yaml`](providers/gmail.yaml) | needs-review |
-| Google Drive | [`providers/google-drive.yaml`](providers/google-drive.yaml) | needs-review |
-| Slack | [`providers/slack.yaml`](providers/slack.yaml) | needs-review |
-| GitHub | [`providers/github.yaml`](providers/github.yaml) | needs-review |
-| Microsoft Graph (Outlook, OneDrive, Teams) | [`providers/microsoft-graph.yaml`](providers/microsoft-graph.yaml) | needs-review |
+| Gmail | [`providers/gmail.yaml`](https://github.com/agenticfabriq/agent-integration-scope-index/blob/main/providers/gmail.yaml) | needs-review |
+| Google Drive | [`providers/google-drive.yaml`](https://github.com/agenticfabriq/agent-integration-scope-index/blob/main/providers/google-drive.yaml) | needs-review |
+| Slack | [`providers/slack.yaml`](https://github.com/agenticfabriq/agent-integration-scope-index/blob/main/providers/slack.yaml) | needs-review |
+| GitHub | [`providers/github.yaml`](https://github.com/agenticfabriq/agent-integration-scope-index/blob/main/providers/github.yaml) | needs-review |
+| Microsoft Graph (Outlook, OneDrive, Teams) | [`providers/microsoft-graph.yaml`](https://github.com/agenticfabriq/agent-integration-scope-index/blob/main/providers/microsoft-graph.yaml) | needs-review |
 
 Records move to `verified` only after someone checks every task against the
 linked provider docs and fills in `verification.checked_on`.
@@ -48,7 +48,7 @@ linked provider docs and fills in `verification.checked_on`.
 
 ## How to cite
 
-See [`CITATION.cff`](CITATION.cff).
+See [`CITATION.cff`](https://github.com/agenticfabriq/agent-integration-scope-index/blob/main/CITATION.cff).
 
 ## Related
 
