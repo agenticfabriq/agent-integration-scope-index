@@ -7,6 +7,9 @@ triggers.
 If you're building an agent that reads a user's inbox, posts to Slack or opens
 a pull request, this is the page that answers "what's the least I can ask for?"
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22806081.svg)](https://doi.org/10.5281/zenodo.22806081)
+
+**DOI:** https://doi.org/10.5281/zenodo.22806081
 **Canonical site:** https://agenticfabriq.github.io/agent-integration-scope-index/
 **Maintainer:** [Agentic Fabriq](https://www.agenticfabriq.com/developers) · **Data:** CC BY 4.0 · **Code:** Apache-2.0
 
