@@ -9,5 +9,5 @@ repository-code: "https://github.com/agenticfabriq/agent-integration-scope-index
 url: "https://agenticfabriq.github.io/agent-integration-scope-index/"
 license: CC-BY-4.0
 version: "0.1.0"
-date-released: "2026-09-30"
+date-released: "2026-09-17"
 keywords: [ai-agents, oauth, least-privilege, mcp, integrations, gmail-api, slack-api, github-apps, microsoft-graph]
